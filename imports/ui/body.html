@@ -1,0 +1,28 @@
+<body>
+	<div class='container'>
+		
+		<header>Database Connectivity</header>
+		
+		<label class = 'hide-completed'>
+			<input type = 'checkbox'/>Hide Completed Tasks
+		</label>
+		{{> loginButtons align="right"}}
+		<!-- currentUser is a built in Object containing all data of the logged in user so used to check if user has logged in or not-->
+		{{#if currentUser}}
+			<form class="new-task">
+				<input type="text" placeholder="Add Task Here..." name='text' />
+			</form>	
+		{{/if}}
+		<!-- There are {{incompleteCount}} no. of incomplete tasks. -->
+		<ul>
+			<li> 
+					{{>count count=incompleteCount}}
+			</li>
+			{{#each tasks}}<!-- to insert a task template for each value of text -->
+				{{>task}}
+			{{/each}}
+		</ul>
+	
+	</div>
+</body>
+
